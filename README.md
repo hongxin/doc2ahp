@@ -1,82 +1,82 @@
 # Doc2AHP
 
-**将学术决策理论转化为开发者的实用工具**
+**Turning academic decision theory into a practical tool for developers**
 
-[English](README_EN.md)
+[中文](README_ZH.md)
 
-Doc2AHP 是一个 Claude Code Skill，基于论文 *"Doc2AHP: Inferring Structured Multi-Criteria Decision Models via Semantic Trees with LLMs"* 的核心原理，为开发者提供结构化多准则决策分析能力。
+Doc2AHP is a Claude Code Skill that brings structured multi-criteria decision analysis to software engineering, based on the principles from the paper *"Doc2AHP: Inferring Structured Multi-Criteria Decision Models via Semantic Trees with LLMs"*.
 
-## 解决什么问题？
+## The Problem
 
-技术选型、架构决策、库对比——这些决策往往：
-- 涉及多个相互冲突的评估维度
-- 依赖个人直觉而非系统分析
-- 缺乏可追溯的决策过程记录
+Tech stack selection, architecture decisions, library comparisons — these decisions often:
+- Involve multiple conflicting evaluation dimensions
+- Rely on gut feeling rather than systematic analysis
+- Lack traceable decision records
 
-Doc2AHP 通过 AHP（层次分析法）框架，将模糊的"感觉"转化为可量化、可追溯的结构化决策。
+Doc2AHP uses the AHP (Analytic Hierarchy Process) framework to transform vague "feelings" into quantifiable, traceable, structured decisions.
 
-## 快速开始
+## Quick Start
 
-### 安装
+### Installation
 
-将 `skill/doc2ahp-decision/` 目录复制到你项目的 `.claude/skills/` 下：
+Copy the `skill/doc2ahp-decision/` directory into your project's `.claude/skills/`:
 
 ```bash
-# 在你的项目根目录
+# In your project root
 mkdir -p .claude/skills
 cp -r path/to/doc2ahp/skill/doc2ahp-decision .claude/skills/
 ```
 
-### 使用
+### Usage
 
-在 Claude Code 中描述你的决策场景，Skill 会自动引导你完成六步决策流程：
+Describe your decision scenario in Claude Code. The skill will guide you through a six-step decision process:
 
-1. **框架构建** — 明确目标、提取准则、构建层次
-2. **多视角评估** — 从技术、业务、运维等角度独立评估
-3. **共识聚合** — 合并多视角为共识权重
-4. **一致性校验** — 确保判断逻辑一致
-5. **方案评分** — 加权评分得出排名
-6. **决策报告** — 输出结构化可存档的报告
+1. **Framework Construction** — Define goal, extract criteria, build hierarchy
+2. **Multi-Perspective Evaluation** — Evaluate from technical, business, ops perspectives
+3. **Consensus Aggregation** — Merge perspectives into consensus weights
+4. **Consistency Check** — Ensure logical consistency of judgments
+5. **Alternative Scoring** — Weighted scoring to produce rankings
+6. **Decision Report** — Structured, archivable report output
 
-## 示例
+## Examples
 
-| 场景 | 文件 |
-|-----|------|
-| 前端框架选型 | [examples/tech-stack-selection.md](examples/tech-stack-selection.md) |
-| 架构方案决策 | [examples/architecture-decision.md](examples/architecture-decision.md) |
-| 状态管理库对比 | [examples/library-comparison.md](examples/library-comparison.md) |
+| Scenario | File |
+|----------|------|
+| Frontend Framework Selection | [examples/tech-stack-selection.md](examples/tech-stack-selection.md) |
+| Architecture Decision | [examples/architecture-decision.md](examples/architecture-decision.md) |
+| State Management Library Comparison | [examples/library-comparison.md](examples/library-comparison.md) |
 
-## 核心理念
+## Core Principles
 
-- **零依赖**：纯 Skill 方案，LLM 自身作为 AHP 计算引擎
-- **认知约束**：每层 ≤7 准则，深度 ≤3 层，基于 Miller's Law
-- **多视角评估**：模拟论文的多 Agent 机制，减少单一视角偏差
-- **一致性检验**：通过传递性检查确保逻辑自洽
+- **Zero Dependencies**: Pure Skill approach — the LLM itself is the AHP computation engine
+- **Cognitive Constraints**: Max 7 criteria per level, max 3 depth levels (Miller's Law)
+- **Multi-Perspective Evaluation**: Simulates the paper's multi-agent mechanism to reduce single-viewpoint bias
+- **Consistency Verification**: Transitivity checks ensure logical coherence
 
-## 项目结构
+## Project Structure
 
 ```
 doc2ahp/
-├── skill/doc2ahp-decision/   # Claude Code Skill（核心）
-├── docs/methodology.md        # 方法论详解
-├── paper/PAPER_SUMMARY.md     # 论文要点摘要
-└── examples/                  # 使用示例
+├── skill/doc2ahp-decision/   # Claude Code Skill (core)
+├── docs/methodology.md        # Detailed methodology
+├── paper/PAPER_SUMMARY.md     # Paper summary
+└── examples/                  # Usage examples
 ```
 
-## 适用场景
+## When to Use
 
-**适合**：3+ 备选方案、多维度权衡、架构级决策、需要向团队解释理由
+**Good fit**: 3+ alternatives, multi-dimensional trade-offs, architecture-level decisions, need to explain rationale to team
 
-**不适合**：二选一简单对比、单一维度决策、紧急决策
+**Not ideal**: Simple A/B choices, single-dimension decisions, urgent decisions
 
-## 深入了解
+## Learn More
 
-- [方法论详解](docs/methodology.md) — 论文方法到实践的完整映射
-- [论文摘要](paper/PAPER_SUMMARY.md) — Doc2AHP 论文核心要点
+- [Methodology](docs/methodology.md) — Full mapping from paper to practice
+- [Paper Summary](paper/PAPER_SUMMARY.md) — Core concepts from the Doc2AHP paper
 
 ## Citation
 
-如果本项目的 Skill / 方法论 / 示例对你的工作有帮助，请引用原始论文：
+If the skill / methodology / examples in this project help your work, please cite the original paper:
 
 ```bibtex
 @article{Wu2026Doc2AHP,

@@ -45,6 +45,11 @@ Describe your decision scenario in Claude Code. The skill will guide you through
 | Frontend Framework Selection | [examples/tech-stack-selection.md](examples/tech-stack-selection.md) |
 | Architecture Decision | [examples/architecture-decision.md](examples/architecture-decision.md) |
 | State Management Library Comparison | [examples/library-comparison.md](examples/library-comparison.md) |
+| AI Foundation Model API Selection | [examples/ai-model-selection.md](examples/ai-model-selection.md) |
+| Programming Language for Trading System | [examples/language-holy-war.md](examples/language-holy-war.md) |
+| Senior Developer Career Path | [examples/career-path-decision.md](examples/career-path-decision.md) |
+| Database for Social App at Scale | [examples/database-selection.md](examples/database-selection.md) |
+| AI Coding Assistant Showdown | [examples/coding-assistant-showdown.md](examples/coding-assistant-showdown.md) |
 
 ## Core Principles
 

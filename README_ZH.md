@@ -45,6 +45,11 @@ cp -r path/to/doc2ahp/skill/doc2ahp-decision .claude/skills/
 | 前端框架选型 | [examples/tech-stack-selection_ZH.md](examples/tech-stack-selection_ZH.md) |
 | 架构方案决策 | [examples/architecture-decision_ZH.md](examples/architecture-decision_ZH.md) |
 | 状态管理库对比 | [examples/library-comparison_ZH.md](examples/library-comparison_ZH.md) |
+| AI 大模型 API 选型 | [examples/ai-model-selection_ZH.md](examples/ai-model-selection_ZH.md) |
+| 高并发交易系统语言之争 | [examples/language-holy-war_ZH.md](examples/language-holy-war_ZH.md) |
+| 资深开发者职业路径决策 | [examples/career-path-decision_ZH.md](examples/career-path-decision_ZH.md) |
+| 千万用户社交 App 数据库选型 | [examples/database-selection_ZH.md](examples/database-selection_ZH.md) |
+| AI 编程助手大乱斗 | [examples/coding-assistant-showdown_ZH.md](examples/coding-assistant-showdown_ZH.md) |
 
 ## 核心理念
 

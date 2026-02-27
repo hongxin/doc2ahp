@@ -1,5 +1,7 @@
 # Example: Cloud Provider Selection (Document-Grounded Mode)
 
+> **Key AHP Concept**: Document-grounded criteria extraction (Mode A) — criteria are extracted from actual project documents with source traceability `[D1 §5]`, τ filter removes irrelevant criteria, and every score is evidence-backed. This is the paper's core "Doc → AHP" pipeline.
+
 [中文](doc-grounded-cloud-selection_ZH.md)
 
 > Scenario: A healthcare SaaS startup needs to choose a cloud provider for their new HIPAA-compliant patient data platform. Unlike the other examples that use Quick Analysis mode, this example demonstrates **Document-Grounded mode** — criteria are extracted from actual project documents, with full source traceability.
@@ -76,11 +78,65 @@ Note: Each criterion is tagged with its source document for traceability.
 
 **User Priority Constraint**: Compliance is non-negotiable — "We cannot launch without HIPAA compliance on day one." [D2, Executive Summary]
 
-## Steps 2-3: Evaluation & Aggregation (Condensed)
+## Step 2: Multi-Perspective Evaluation
 
-Combining evaluations from four perspectives: Cloud Architect, CISO (Security), Healthcare Domain Expert, and CFO:
+### Perspective 1: Cloud Architect
 
-**Consensus Weights** (with compliance priority constraint applied):
+| vs | Compliance & Security | Technical Fit | Healthcare Ecosystem | Cost & Team |
+|----|----------------------|---------------|---------------------|-------------|
+| Compliance & Security | 1 | 1 | 2 | 3 |
+| Technical Fit | 1 | 1 | 2 | 3 |
+| Healthcare Ecosystem | 1/2 | 1/2 | 1 | 2 |
+| Cost & Team | 1/3 | 1/3 | 1/2 | 1 |
+
+### Perspective 2: CISO (Security)
+
+| vs | Compliance & Security | Technical Fit | Healthcare Ecosystem | Cost & Team |
+|----|----------------------|---------------|---------------------|-------------|
+| Compliance & Security | 1 | 3 | 3 | 5 |
+| Technical Fit | 1/3 | 1 | 1 | 2 |
+| Healthcare Ecosystem | 1/3 | 1 | 1 | 2 |
+| Cost & Team | 1/5 | 1/2 | 1/2 | 1 |
+
+### Perspective 3: Healthcare Domain Expert
+
+| vs | Compliance & Security | Technical Fit | Healthcare Ecosystem | Cost & Team |
+|----|----------------------|---------------|---------------------|-------------|
+| Compliance & Security | 1 | 1 | 1/2 | 3 |
+| Technical Fit | 1 | 1 | 1/2 | 2 |
+| Healthcare Ecosystem | 2 | 2 | 1 | 3 |
+| Cost & Team | 1/3 | 1/2 | 1/3 | 1 |
+
+### Perspective 4: CFO
+
+| vs | Compliance & Security | Technical Fit | Healthcare Ecosystem | Cost & Team |
+|----|----------------------|---------------|---------------------|-------------|
+| Compliance & Security | 1 | 2 | 2 | 1 |
+| Technical Fit | 1/2 | 1 | 1 | 1/2 |
+| Healthcare Ecosystem | 1/2 | 1 | 1 | 1/2 |
+| Cost & Team | 1 | 2 | 2 | 1 |
+
+## Step 3: Consensus Aggregation
+
+### Geometric Mean Matrix
+
+| vs | Compliance & Security | Technical Fit | Healthcare Ecosystem | Cost & Team |
+|----|----------------------|---------------|---------------------|-------------|
+| Compliance & Security | 1 | 1.57 | 1.57 | 2.59 |
+| Technical Fit | 0.64 | 1 | 0.84 | 1.57 |
+| Healthcare Ecosystem | 0.64 | 1.19 | 1 | 1.57 |
+| Cost & Team | 0.39 | 0.64 | 0.64 | 1 |
+
+### Weight Calculation
+
+| Criterion | Row Geometric Mean | Normalized Weight |
+|-----------|-------------------|-------------------|
+| Compliance & Security | 1.58 | 0.38 × (constraint applied) |
+| Technical Fit | 0.97 | 0.27 |
+| Healthcare Ecosystem | 1.05 | 0.20 |
+| Cost & Team | 0.60 | 0.15 |
+
+**Consensus Weights** (with "compliance non-negotiable" constraint applied, boosting by 2 scale levels):
 
 ```
 Compliance & Security: 0.38 ███████████████████
@@ -88,8 +144,6 @@ Technical Fit:         0.27 █████████████
 Healthcare Ecosystem:  0.20 ██████████
 Cost & Team:           0.15 ███████
 ```
-
-(The "compliance non-negotiable" constraint boosted Compliance & Security by 2 scale levels)
 
 ## Step 4: Consistency Check
 
@@ -106,7 +160,7 @@ Each score is grounded in document evidence where available:
 |---------------|--------|-----|-------|-----|---------------|
 | HIPAA BAA & Certifications | 0.15 | 9 | 9 | 8 | [D4] AWS & Azure have HITRUST; GCP lacks HITRUST |
 | Data Encryption Standards | 0.12 | 9 | 9 | 9 | [D2 §3.4] All three meet AES-256 + TLS 1.3 |
-| Audit Logging & Access | 0.11 | 9 | 8 | 7 | [D4] AWS CloudTrail most mature; GCP audit logs improving |
+| Audit Logging & Access | 0.11 | 9 | 8 | 6 | [D4] AWS CloudTrail most mature; GCP audit logging less comprehensive |
 | Auto-scaling | 0.10 | 9 | 8 | 9 | [D1 §5] AWS & GCP auto-scaling equally strong |
 | Multi-region Failover | 0.09 | 9 | 8 | 8 | [D1 §6.3] AWS has most regions; all meet RPO/RTO targets |
 | Managed Kubernetes | 0.08 | 8 | 7 | 9 | [D1 §4.1] GKE widely considered best managed K8s |
@@ -119,9 +173,9 @@ Each score is grounded in document evidence where available:
 
 | Alternative | Weighted Total Score |
 |-------------|---------------------|
-| **AWS** | **8.47** |
-| **Azure** | **7.88** |
-| **GCP** | **7.85** |
+| **AWS** | **8.56** |
+| **Azure** | **8.03** |
+| **GCP** | **7.94** |
 
 ### Sensitivity Analysis
 
@@ -142,15 +196,15 @@ Scenario B — Increasing "Healthcare Ecosystem" weight from 0.20 to 0.35 (futur
 # Decision Report: Cloud Provider Selection for Healthcare SaaS
 
 ## Recommendation
-**AWS** — Overall Score: 8.47 / 10
+**AWS** — Overall Score: 8.56 / 10
 
 ## Ranking
 
 | Rank | Alternative | Score | Key Strength |
 |------|------------|-------|-------------|
-| 1 | AWS | 8.47 | Most mature HIPAA tooling, strongest team match, broadest compliance certifications |
-| 2 | Azure | 7.88 | Best healthcare-specific ecosystem (FHIR, health AI), strong enterprise compliance |
-| 3 | GCP | 7.85 | Best managed Kubernetes, competitive pricing, but thinnest healthcare-specific offering |
+| 1 | AWS | 8.56 | Most mature HIPAA tooling, strongest team match, broadest compliance certifications |
+| 2 | Azure | 8.03 | Best healthcare-specific ecosystem (FHIR, health AI), strong enterprise compliance |
+| 3 | GCP | 7.94 | Best managed Kubernetes, competitive pricing, but thinnest healthcare-specific offering |
 
 ## Criteria Weight Distribution
 

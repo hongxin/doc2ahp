@@ -48,18 +48,25 @@ Describe your decision scenario in Claude Code. The skill will guide you through
 
 ## Examples
 
+### Featured (polished, verified calculations)
+
+| Scenario | Key AHP Concept | File |
+|----------|----------------|------|
+| AI Foundation Model API Selection | Multi-perspective disagreement & consensus | [examples/ai-model-selection.md](examples/ai-model-selection.md) |
+| Programming Language for Trading System | Leader Agent constraint & sensitivity analysis | [examples/language-holy-war.md](examples/language-holy-war.md) |
+| Senior Developer Career Path | AHP beyond technology (inner-voice perspectives) | [examples/career-path-decision.md](examples/career-path-decision.md) |
+| Microservices vs Monolith Architecture | Leader Agent priority constraint | [examples/architecture-decision.md](examples/architecture-decision.md) |
+| Cloud Provider Selection (Document-Grounded) | Doc-grounded criteria extraction (Mode A) | [examples/doc-grounded-cloud-selection.md](examples/doc-grounded-cloud-selection.md) |
+| JS Runtime Selection (Real Data) | Full calculation with real benchmark data | [examples/js-runtime-selection/](examples/js-runtime-selection/) |
+
+### More examples
+
 | Scenario | File |
 |----------|------|
-| Frontend Framework Selection | [examples/tech-stack-selection.md](examples/tech-stack-selection.md) |
-| Architecture Decision | [examples/architecture-decision.md](examples/architecture-decision.md) |
-| State Management Library Comparison | [examples/library-comparison.md](examples/library-comparison.md) |
-| AI Foundation Model API Selection | [examples/ai-model-selection.md](examples/ai-model-selection.md) |
-| Programming Language for Trading System | [examples/language-holy-war.md](examples/language-holy-war.md) |
-| Senior Developer Career Path | [examples/career-path-decision.md](examples/career-path-decision.md) |
-| Database for Social App at Scale | [examples/database-selection.md](examples/database-selection.md) |
-| AI Coding Assistant Showdown | [examples/coding-assistant-showdown.md](examples/coding-assistant-showdown.md) |
-| Cloud Provider Selection (Document-Grounded Mode) | [examples/doc-grounded-cloud-selection.md](examples/doc-grounded-cloud-selection.md) |
-| JS Runtime Selection (Real Data, Full Calculation) | [examples/js-runtime-selection/](examples/js-runtime-selection/) |
+| Frontend Framework Selection | [examples/more/tech-stack-selection.md](examples/more/tech-stack-selection.md) |
+| State Management Library Comparison | [examples/more/library-comparison.md](examples/more/library-comparison.md) |
+| Database for Social App at Scale | [examples/more/database-selection.md](examples/more/database-selection.md) |
+| AI Coding Assistant Showdown | [examples/more/coding-assistant-showdown.md](examples/more/coding-assistant-showdown.md) |
 
 ## Core Principles
 

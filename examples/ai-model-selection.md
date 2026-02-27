@@ -1,5 +1,7 @@
 # Example: AI Foundation Model API Selection
 
+> **Key AHP Concept**: Multi-perspective disagreement & consensus — 4 expert roles (ML Engineer, CTO, Security Officer, Product Manager) produce sharply different priority rankings, yet geometric mean aggregation converges to a defensible consensus.
+
 [中文](ai-model-selection_ZH.md)
 
 > Scenario: An AI startup building an intelligent customer service platform needs to choose a foundation model API. The team of 8 (ML engineers + fullstack developers) must handle multilingual conversations, document understanding, and workflow automation. Expected volume: 2M API calls/day.
@@ -133,10 +135,10 @@ Integration & Ops:    0.14 ███████
 
 | Alternative | Weighted Total Score |
 |-------------|---------------------|
-| **Claude** | **8.18** |
-| **GPT-4o** | **7.78** |
-| **Gemini** | **7.53** |
-| **Llama 3** | **7.08** |
+| **Claude** | **8.07** |
+| **GPT-4o** | **7.87** |
+| **Gemini** | **7.59** |
+| **Llama 3** | **7.24** |
 
 ### Sensitivity Analysis
 
@@ -159,19 +161,19 @@ Scenario B — Increasing "Cost & Efficiency" weight from 0.22 to 0.35 (budget-c
 # Decision Report: AI Foundation Model API Selection
 
 ## Recommendation
-**Claude (Anthropic)** — Overall Score: 8.18 / 10
+**Claude (Anthropic)** — Overall Score: 8.07 / 10
 
 ## Ranking
 
 | Rank | Alternative | Score | Key Strength |
 |------|------------|-------|-------------|
-| 1 | Claude | 8.18 | Best reasoning accuracy, strongest safety guardrails, leading data privacy |
-| 2 | GPT-4o | 7.78 | Most versatile multimodal, best SDK/tooling ecosystem, widest adoption |
-| 3 | Gemini | 7.53 | Competitive pricing, strong multimodal, good throughput at scale |
-| 4 | Llama 3 | 7.08 | Full data sovereignty, zero API costs at scale, maximum customizability |
+| 1 | Claude | 8.07 | Best reasoning accuracy, strongest safety guardrails, leading data privacy |
+| 2 | GPT-4o | 7.87 | Most versatile multimodal, best SDK/tooling ecosystem, widest adoption |
+| 3 | Gemini | 7.59 | Competitive pricing, strong multimodal, good throughput at scale |
+| 4 | Llama 3 | 7.24 | Full data sovereignty, zero API costs at scale, maximum customizability |
 
 ## Key Trade-offs
-- **Claude vs GPT-4o**: Claude leads in safety and reasoning; GPT-4o leads in multimodal breadth and ecosystem tooling. The 0.40-point gap is primarily driven by safety & privacy weights
+- **Claude vs GPT-4o**: Claude leads in safety and reasoning; GPT-4o leads in multimodal breadth and ecosystem tooling. The 0.20-point gap is primarily driven by safety & privacy weights
 - **Managed vs Self-hosted**: Llama 3 offers unmatched data sovereignty and cost control at scale, but requires significant ML infrastructure investment (GPU cluster, model serving, monitoring)
 - **Gemini as a dark horse**: Most competitive pricing at high volume, with Google Cloud integration advantages for teams already in GCP
 

@@ -1,5 +1,7 @@
 # Example: Programming Language Selection for High-Concurrency Trading System
 
+> **Key AHP Concept**: Leader Agent priority constraint & sensitivity analysis — a user-stated priority ("latency predictability is paramount") reshapes the weight distribution, and sensitivity analysis reveals the exact tipping point where the ranking flips.
+
 [中文](language-holy-war_ZH.md)
 
 > Scenario: A fintech startup is building a real-time trading engine. Their Python prototype handles 100 TPS, but they need to scale to 10,000+ TPS with sub-millisecond P99 latency. The 6-person team has diverse backgrounds (2 Python, 2 Java, 1 Go, 1 C++). Budget for rewrite: 4 months.
@@ -115,9 +117,9 @@ Talent & Long-term: 0.13 ██████
 
 | Alternative | Weighted Total Score |
 |-------------|---------------------|
-| **Rust** | **7.70** |
-| **Go** | **7.55** |
-| **Java** | **7.18** |
+| **Rust** | **7.93** |
+| **Go** | **7.62** |
+| **Java** | **7.29** |
 
 ### Sensitivity Analysis
 
@@ -138,18 +140,18 @@ Scenario B — Increasing "Dev Velocity" weight from 0.22 to 0.35 (tighter deadl
 # Decision Report: Trading Engine Language Selection
 
 ## Recommendation
-**Rust** — Overall Score: 7.70 / 10
+**Rust** — Overall Score: 7.93 / 10
 
 ## Ranking
 
 | Rank | Alternative | Score | Key Strength |
 |------|------------|-------|-------------|
-| 1 | Rust | 7.70 | Zero-cost abstractions, no GC pauses, deterministic latency, best memory safety |
-| 2 | Go | 7.55 | Fastest development speed, excellent concurrency model, easiest to hire for |
-| 3 | Java | 7.18 | Richest financial ecosystem, mature tooling, but GC pauses are a real concern |
+| 1 | Rust | 7.93 | Zero-cost abstractions, no GC pauses, deterministic latency, best memory safety |
+| 2 | Go | 7.62 | Fastest development speed, excellent concurrency model, easiest to hire for |
+| 3 | Java | 7.29 | Richest financial ecosystem, mature tooling, but GC pauses are a real concern |
 
 ## Key Trade-offs
-- **Rust vs Go (the critical 0.15-point gap)**: Rust guarantees zero GC pauses — crucial for trading. But Go's development velocity advantage means the team ships 40-60% faster. If latency tolerance is >5ms P99, Go is the better choice
+- **Rust vs Go (the critical 0.31-point gap)**: Rust guarantees zero GC pauses — crucial for trading. But Go's development velocity advantage means the team ships 40-60% faster. If latency tolerance is >5ms P99, Go is the better choice
 - **Java's GC problem**: Even with ZGC/Shenandoah, Java cannot guarantee sub-millisecond P99 under sustained load. The financial library ecosystem is unmatched, but the latency tax is real
 - **The Rust learning curve**: Expect 6-8 weeks before the team is productive. The borrow checker will cause frustration, but it catches concurrency bugs at compile time that would be production incidents in Go/Java
 

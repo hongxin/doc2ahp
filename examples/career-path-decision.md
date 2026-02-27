@@ -1,5 +1,7 @@
 # Example: Senior Developer Career Path Decision
 
+> **Key AHP Concept**: AHP beyond technology — inner-voice perspectives (Pragmatist, Ambitious Self, Mentor, Life Partner) replace expert roles, showing that AHP works for personal life decisions, not just tech choices.
+
 [中文](career-path-decision_ZH.md)
 
 > Scenario: A 32-year-old senior backend developer with 8 years of experience at a major tech company. Solid savings (2 years of runway), no mortgage pressure. Technically strong but feeling plateaued — passed over for Staff promotion twice. Has a side project with 2K GitHub stars and a growing newsletter (5K subscribers). Three paths diverge ahead.
@@ -125,9 +127,9 @@ Financial Outcomes: 0.20 ██████████
 
 | Alternative | Weighted Total Score |
 |-------------|---------------------|
-| **Startup CTO** | **6.98** |
-| **Independent** | **7.38** |
-| **Big Tech** | **5.52** |
+| **Independent** | **7.71** |
+| **Startup CTO** | **7.01** |
+| **Big Tech** | **5.66** |
 
 ### Sensitivity Analysis
 
@@ -148,18 +150,18 @@ Scenario B — Career Impact weight increased to 0.40 (reputation-driven):
 # Decision Report: Career Path Selection
 
 ## Recommendation
-**Go Independent** — Overall Score: 7.38 / 10
+**Go Independent** — Overall Score: 7.71 / 10
 
 ## Ranking
 
 | Rank | Alternative | Score | Key Strength |
 |------|------------|-------|-------------|
-| 1 | Go Independent | 7.38 | Maximum autonomy, broadest skill growth, best long-term optionality |
-| 2 | Startup CTO | 6.98 | Fastest growth in leadership & breadth, strongest network expansion, highest financial upside |
-| 3 | Stay at Big Tech | 5.52 | Most stable income, lowest risk, but limited growth at current plateau |
+| 1 | Go Independent | 7.71 | Maximum autonomy, broadest skill growth, best long-term optionality |
+| 2 | Startup CTO | 7.01 | Fastest growth in leadership & breadth, strongest network expansion, highest financial upside |
+| 3 | Stay at Big Tech | 5.66 | Most stable income, lowest risk, but limited growth at current plateau |
 
 ## Key Trade-offs
-- **Independent vs Startup CTO (the 0.40-point gap)**: Both score high on growth, but Independent wins on lifestyle and optionality. The Startup path offers faster, more intense growth but demands 60-70 hour weeks and carries real financial risk
+- **Independent vs Startup CTO (the 0.70-point gap)**: Both score high on growth, but Independent wins decisively on lifestyle and optionality. The Startup path offers faster, more intense growth but demands 60-70 hour weeks and carries real financial risk
 - **The Big Tech trap**: High income stability scores (10/10) cannot compensate for consistently low growth and autonomy scores. Staying is the "safe" choice, but for someone already plateaued, it may be the riskiest long-term decision
 - **The hidden advantage of Independent**: It's the only path that's fully reversible. You can always go back to Big Tech or join a startup later. The reverse isn't true
 

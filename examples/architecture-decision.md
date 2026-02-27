@@ -1,5 +1,7 @@
 # Example: Microservices vs Monolith Architecture Decision
 
+> **Key AHP Concept**: Leader Agent priority constraint — the user's stated priority ("development efficiency first") acts as a constraint that boosts a criterion's weight, demonstrating how AHP incorporates stakeholder values into the mathematical framework.
+
 [中文](architecture-decision_ZH.md)
 
 > Scenario: An e-commerce platform's daily order volume has grown from 1K to 50K. The existing Django monolith is experiencing performance bottlenecks, and the team is considering an architectural upgrade.
@@ -35,11 +37,56 @@ Select the Best Architecture Approach
 
 **User Priority Constraint**: Development efficiency first (startup stage, need rapid iteration)
 
-## Steps 2-3: Evaluation & Aggregation (Condensed)
+## Step 2: Multi-Perspective Evaluation
 
-Combining evaluations from three perspectives: Technical Architect, Ops Engineer, and CTO:
+### Perspective 1: Technical Architect
 
-**Consensus Weights**:
+| vs | Scalability | Dev Efficiency | Reliability | Operational Cost |
+|----|-------------|---------------|-------------|-----------------|
+| Scalability | 1 | 1/2 | 2 | 3 |
+| Dev Efficiency | 2 | 1 | 2 | 3 |
+| Reliability | 1/2 | 1/2 | 1 | 2 |
+| Operational Cost | 1/3 | 1/3 | 1/2 | 1 |
+
+### Perspective 2: Ops Engineer
+
+| vs | Scalability | Dev Efficiency | Reliability | Operational Cost |
+|----|-------------|---------------|-------------|-----------------|
+| Scalability | 1 | 1/2 | 1 | 1/2 |
+| Dev Efficiency | 2 | 1 | 2 | 1 |
+| Reliability | 1 | 1/2 | 1 | 1 |
+| Operational Cost | 2 | 1 | 1 | 1 |
+
+### Perspective 3: CTO
+
+| vs | Scalability | Dev Efficiency | Reliability | Operational Cost |
+|----|-------------|---------------|-------------|-----------------|
+| Scalability | 1 | 1/3 | 2 | 2 |
+| Dev Efficiency | 3 | 1 | 3 | 4 |
+| Reliability | 1/2 | 1/3 | 1 | 1 |
+| Operational Cost | 1/2 | 1/4 | 1 | 1 |
+
+## Step 3: Consensus Aggregation
+
+### Geometric Mean Matrix
+
+| vs | Scalability | Dev Efficiency | Reliability | Operational Cost |
+|----|-------------|---------------|-------------|-----------------|
+| Scalability | 1 | 0.44 | 1.59 | 1.44 |
+| Dev Efficiency | 2.29 | 1 | 2.29 | 2.29 |
+| Reliability | 0.63 | 0.44 | 1 | 1.26 |
+| Operational Cost | 0.69 | 0.44 | 0.79 | 1 |
+
+### Weight Calculation
+
+| Criterion | Row Geometric Mean | Normalized Weight |
+|-----------|-------------------|-------------------|
+| Scalability | 1.04 | 0.28 |
+| Dev Efficiency | 1.87 | 0.38 × (constraint applied) |
+| Reliability | 0.74 | 0.20 |
+| Operational Cost | 0.65 | 0.14 |
+
+**Weight Distribution** (with "development efficiency first" constraint applied, boosting by 1 scale level):
 
 ```
 Development Efficiency: 0.38 ███████████████████
@@ -47,8 +94,6 @@ Scalability:            0.28 ██████████████
 Reliability:            0.20 ██████████
 Operational Cost:       0.14 ███████
 ```
-
-(The "development efficiency first" constraint has been applied, boosting its weight by 1 scale level)
 
 ## Step 4: Consistency Check
 
@@ -76,9 +121,9 @@ Operational Cost:       0.14 ███████
 
 | Alternative | Weighted Total Score |
 |-------------|---------------------|
-| **Progressive Decomposition** | **6.72** |
-| **Modular Monolith** | **6.58** |
-| **Full Microservices** | **6.10** |
+| **Progressive Decomposition** | **6.62** |
+| **Modular Monolith** | **6.52** |
+| **Full Microservices** | **6.35** |
 
 ### Sensitivity Analysis
 
@@ -94,15 +139,15 @@ Progressive Decomposition maintains its lead in both scenarios — the conclusio
 # Decision Report: Architecture Approach Selection
 
 ## Recommendation
-**Progressive Decomposition** — Overall Score: 6.72 / 10
+**Progressive Decomposition** — Overall Score: 6.62 / 10
 
 ## Ranking
 
 | Rank | Alternative | Score | Key Strength |
 |------|------------|-------|-------------|
-| 1 | Progressive Decomposition | 6.72 | Balances short-term efficiency with long-term scalability, lowest risk |
-| 2 | Modular Monolith | 6.58 | Fastest development, but clear scalability ceiling |
-| 3 | Full Microservices | 6.10 | Strongest scalability, but excessive complexity at current stage |
+| 1 | Progressive Decomposition | 6.62 | Balances short-term efficiency with long-term scalability, lowest risk |
+| 2 | Modular Monolith | 6.52 | Fastest development, but clear scalability ceiling |
+| 3 | Full Microservices | 6.35 | Strongest scalability, but excessive complexity at current stage |
 
 ## Key Trade-offs
 - Full Microservices leads in scalability and fault isolation, but development complexity and operational costs are too high

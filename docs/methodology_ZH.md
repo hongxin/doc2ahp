@@ -1,5 +1,7 @@
 # Doc2AHP 方法论：从论文到软件决策实践
 
+[English](methodology.md)
+
 ## 概述
 
 本文档将 Doc2AHP 论文（Wu, Zhou, Zhang & Chen, 2026; [arXiv:2601.16479](https://arxiv.org/abs/2601.16479)）的学术方法映射到软件工程决策场景，为 Skill 实现提供方法论支撑。

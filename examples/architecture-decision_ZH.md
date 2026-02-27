@@ -1,5 +1,7 @@
 # 示例：微服务 vs 单体架构决策
 
+[English](architecture-decision.md)
+
 > 场景：电商平台日订单量从 1K 增长到 50K，现有 Django 单体出现性能瓶颈，团队考虑架构升级。
 
 ## Step 1: 决策框架构建

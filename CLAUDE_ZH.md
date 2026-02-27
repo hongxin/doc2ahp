@@ -1,5 +1,7 @@
 # Doc2AHP Project
 
+[English](CLAUDE.md)
+
 ## 项目概述
 Doc2AHP 是一个 Claude Code Skill，将论文 "Doc2AHP" 的结构化多准则决策方法论转化为开发者可用的决策分析工具。
 

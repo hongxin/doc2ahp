@@ -1,5 +1,7 @@
 # Example: State Management Library Comparison
 
+[中文](library-comparison_ZH.md)
+
 > Scenario: A React project needs global state management. Currently using React Context + useReducer, but as the application grows in complexity, a more powerful solution is needed.
 
 ## Step 1: Decision Framework Construction

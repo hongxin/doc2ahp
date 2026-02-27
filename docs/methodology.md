@@ -1,5 +1,7 @@
 # Doc2AHP Methodology: From Paper to Software Decision Practice
 
+[中文](methodology_ZH.md)
+
 ## Overview
 
 This document maps the academic methodology of the Doc2AHP paper (Wu, Zhou, Zhang & Chen, 2026; [arXiv:2601.16479](https://arxiv.org/abs/2601.16479)) to software engineering decision scenarios, providing methodological support for the Skill implementation.

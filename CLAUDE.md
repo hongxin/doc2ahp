@@ -1,5 +1,7 @@
 # Doc2AHP Project
 
+[中文](CLAUDE_ZH.md)
+
 ## Overview
 Doc2AHP is a Claude Code Skill that transforms the structured multi-criteria decision methodology from the "Doc2AHP" paper into a practical decision analysis tool for developers.
 

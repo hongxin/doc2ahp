@@ -42,9 +42,9 @@ cp -r path/to/doc2ahp/skill/doc2ahp-decision .claude/skills/
 
 | 场景 | 文件 |
 |-----|------|
-| 前端框架选型 | [examples/tech-stack-selection.md](examples/tech-stack-selection.md) |
-| 架构方案决策 | [examples/architecture-decision.md](examples/architecture-decision.md) |
-| 状态管理库对比 | [examples/library-comparison.md](examples/library-comparison.md) |
+| 前端框架选型 | [examples/tech-stack-selection_ZH.md](examples/tech-stack-selection_ZH.md) |
+| 架构方案决策 | [examples/architecture-decision_ZH.md](examples/architecture-decision_ZH.md) |
+| 状态管理库对比 | [examples/library-comparison_ZH.md](examples/library-comparison_ZH.md) |
 
 ## 核心理念
 
@@ -58,8 +58,8 @@ cp -r path/to/doc2ahp/skill/doc2ahp-decision .claude/skills/
 ```
 doc2ahp/
 ├── skill/doc2ahp-decision/   # Claude Code Skill（核心）
-├── docs/methodology.md        # 方法论详解
-├── paper/PAPER_SUMMARY.md     # 论文要点摘要
+├── docs/methodology_ZH.md     # 方法论详解
+├── paper/PAPER_SUMMARY_ZH.md  # 论文要点摘要
 └── examples/                  # 使用示例
 ```
 
@@ -71,8 +71,8 @@ doc2ahp/
 
 ## 深入了解
 
-- [方法论详解](docs/methodology.md) — 论文方法到实践的完整映射
-- [论文摘要](paper/PAPER_SUMMARY.md) — Doc2AHP 论文核心要点
+- [方法论详解](docs/methodology_ZH.md) — 论文方法到实践的完整映射
+- [论文摘要](paper/PAPER_SUMMARY_ZH.md) — Doc2AHP 论文核心要点
 
 ## Citation
 

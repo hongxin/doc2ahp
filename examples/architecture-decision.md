@@ -1,5 +1,7 @@
 # Example: Microservices vs Monolith Architecture Decision
 
+[中文](architecture-decision_ZH.md)
+
 > Scenario: An e-commerce platform's daily order volume has grown from 1K to 50K. The existing Django monolith is experiencing performance bottlenecks, and the team is considering an architectural upgrade.
 
 ## Step 1: Decision Framework Construction

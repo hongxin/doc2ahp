@@ -1,5 +1,7 @@
 # Example: Web Application Tech Stack Selection
 
+[中文](tech-stack-selection_ZH.md)
+
 > Scenario: A startup team of 5 needs to choose a frontend framework for a new project. The team's primary experience is in React and Vue.
 
 ## Step 1: Decision Framework Construction

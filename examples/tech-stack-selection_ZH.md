@@ -1,5 +1,7 @@
 # 示例：Web 应用技术栈选型
 
+[English](tech-stack-selection.md)
+
 > 场景：某创业团队需要为新项目选择前端框架，团队有 5 人，主要经验在 React 和 Vue。
 
 ## Step 1: 决策框架构建

@@ -1,5 +1,7 @@
 # 示例：状态管理库对比
 
+[English](library-comparison.md)
+
 > 场景：React 项目需要引入全局状态管理，当前用 React Context + useReducer，随着应用复杂度增加需要更强大的方案。
 
 ## Step 1: 决策框架构建

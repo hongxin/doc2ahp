@@ -74,6 +74,20 @@ doc2ahp/
 - [Methodology](docs/methodology.md) — Full mapping from paper to practice
 - [Paper Summary](paper/PAPER_SUMMARY.md) — Core concepts from the Doc2AHP paper
 
+## Citation
+
+If the skill / methodology / examples in this project help your work, please cite the original paper:
+
+```bibtex
+@article{Wu2026Doc2AHP,
+    author    = {Hongjia Wu and Shuai Zhou and Hongxin Zhang and Wei Chen},
+    title     = {Doc2AHP: Inferring Structured Multi-Criteria Decision Models via Semantic Trees with LLMs},
+    journal   = {arXiv preprint arXiv:2601.16479},
+    year      = {2026},
+    doi       = {10.48550/arXiv.2601.16479}
+}
+```
+
 ## License
 
 [MIT](LICENSE)

@@ -1,6 +1,8 @@
 # Doc2AHP 论文核心要点
 
 > 论文: "Doc2AHP: Inferring Structured Multi-Criteria Decision Models via Semantic Trees with LLMs"
+> 作者: Hongjia Wu, Shuai Zhou, Hongxin Zhang, Wei Chen
+> arXiv: [2601.16479](https://arxiv.org/abs/2601.16479)
 
 ## 核心问题
 

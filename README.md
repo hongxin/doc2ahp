@@ -59,6 +59,7 @@ Describe your decision scenario in Claude Code. The skill will guide you through
 | Database for Social App at Scale | [examples/database-selection.md](examples/database-selection.md) |
 | AI Coding Assistant Showdown | [examples/coding-assistant-showdown.md](examples/coding-assistant-showdown.md) |
 | Cloud Provider Selection (Document-Grounded Mode) | [examples/doc-grounded-cloud-selection.md](examples/doc-grounded-cloud-selection.md) |
+| JS Runtime Selection (Real Data, Full Calculation) | [examples/js-runtime-selection/](examples/js-runtime-selection/) |
 
 ## Core Principles
 

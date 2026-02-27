@@ -59,6 +59,7 @@ cp -r path/to/doc2ahp/skill/doc2ahp-decision .claude/skills/
 | 千万用户社交 App 数据库选型 | [examples/database-selection_ZH.md](examples/database-selection_ZH.md) |
 | AI 编程助手大乱斗 | [examples/coding-assistant-showdown_ZH.md](examples/coding-assistant-showdown_ZH.md) |
 | 云服务商选型（文档驱动模式） | [examples/doc-grounded-cloud-selection_ZH.md](examples/doc-grounded-cloud-selection_ZH.md) |
+| JS 运行时选型（真实数据，完整计算） | [examples/js-runtime-selection/](examples/js-runtime-selection/) |
 
 ## 核心理念
 

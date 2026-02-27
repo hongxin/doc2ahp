@@ -81,16 +81,54 @@ Select the Best Library/Tool
     └── Compatibility with Existing Stack
 ```
 
-## 2. Six-Step Decision Process in Detail
+## 2. Decision Process in Detail: Step 0 + Six Steps
+
+### Step 0: Decision Input Mode Selection
+
+**Paper Mapping**: Document Input & Semantic Tree Construction — the "Doc" in Doc2AHP
+
+The original paper's core innovation is transforming **unstructured documents** into structured AHP hierarchies through embedding and hierarchical clustering. Step 0 preserves this critical first stage by giving users an explicit choice about information sources.
+
+**Two Modes**:
+
+| Aspect | Mode A: Document-Grounded | Mode B: Quick Analysis |
+|--------|--------------------------|----------------------|
+| Input | User-provided documents, URLs, or web search results | User's verbal scenario description |
+| Criteria extraction | From document content, with source traceability | From LLM's domain knowledge |
+| Paper alignment | Faithful to the Doc2AHP pipeline | Simplified — skips the "Doc" stage |
+| Traceability | Each criterion tagged with `[Source: doc, section]` | Criteria origin is implicit |
+| Best for | High-stakes decisions, compliance-sensitive, team buy-in needed | Well-understood domains, rapid exploration, personal decisions |
+
+**Mode A Information Sources**:
+1. **Local files**: Requirements docs, tech specs, ADRs, meeting notes, benchmark reports
+2. **Web URLs**: Comparison articles, official documentation, benchmark pages
+3. **Web search**: Claude proactively searches for authoritative sources
+4. **Hybrid**: Combine any of the above
+
+**Mode A: τ (tau) Relevance Filter**:
+After extracting candidate criteria from all documents, apply the relevance filter:
+- Keep criteria that appear in multiple sources OR have strong relevance to the decision goal
+- Filter out criteria that appear in only one source with weak relevance
+- Document what was filtered and why
+
+**When to recommend Mode A over Mode B**:
+- Decision affects multiple stakeholders who need to understand the rationale
+- Compliance or audit requirements demand traceable decision records
+- The decision domain is specialized (healthcare, fintech, security) where general knowledge may be insufficient
+- The team has existing research or analysis documents worth leveraging
+
+See the [Document-Grounded Cloud Selection example](../examples/doc-grounded-cloud-selection.md) for a complete Mode A walkthrough.
 
 ### Step 1: Decision Framework Construction
 
-**Paper Mapping**: Semantic Tree Construction
+**Paper Mapping**: Semantic Tree Construction (criteria organization stage)
 
 **Operating Procedure**:
 
 1. **Define the decision goal**: Describe the decision problem in one sentence
-2. **Extract criteria**: Pull evaluation dimensions from project context, requirements docs, team discussions
+2. **Extract criteria**:
+   - **Mode A**: Extract from documents processed in Step 0, tagging each criterion with its source reference
+   - **Mode B**: Pull evaluation dimensions from project context, requirements docs, team discussions
 3. **Build hierarchy**: Organize criteria as Goal → Main Criteria → Sub-criteria → Alternatives
 4. **Cognitive constraint check**:
    - ≤ 7 criteria per level (Miller's Law)

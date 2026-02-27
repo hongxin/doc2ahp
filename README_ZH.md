@@ -15,6 +15,13 @@ Doc2AHP 是一个 Claude Code Skill，基于论文 *"Doc2AHP: Inferring Structur
 
 Doc2AHP 通过 AHP（层次分析法）框架，将模糊的"感觉"转化为可量化、可追溯的结构化决策。
 
+## 两种输入模式
+
+Doc2AHP 支持两种方式开始决策分析：
+
+- **模式 A: 文档驱动** — 从实际文档（需求文档、技术规范、网络搜索结果）中提取准则，带完整来源追溯。忠实于论文的 "Doc → AHP" 流水线。[查看示例](examples/doc-grounded-cloud-selection_ZH.md)
+- **模式 B: 快速分析** — 从 LLM 领域知识生成准则，适合快速探索。速度更快，但可追溯性较弱。
+
 ## 快速开始
 
 ### 安装
@@ -29,8 +36,9 @@ cp -r path/to/doc2ahp/skill/doc2ahp-decision .claude/skills/
 
 ### 使用
 
-在 Claude Code 中描述你的决策场景，Skill 会自动引导你完成六步决策流程：
+在 Claude Code 中描述你的决策场景，Skill 会自动引导你完成决策流程：
 
+0. **输入模式选择** — 选择文档驱动或快速分析模式
 1. **框架构建** — 明确目标、提取准则、构建层次
 2. **多视角评估** — 从技术、业务、运维等角度独立评估
 3. **共识聚合** — 合并多视角为共识权重
@@ -50,6 +58,7 @@ cp -r path/to/doc2ahp/skill/doc2ahp-decision .claude/skills/
 | 资深开发者职业路径决策 | [examples/career-path-decision_ZH.md](examples/career-path-decision_ZH.md) |
 | 千万用户社交 App 数据库选型 | [examples/database-selection_ZH.md](examples/database-selection_ZH.md) |
 | AI 编程助手大乱斗 | [examples/coding-assistant-showdown_ZH.md](examples/coding-assistant-showdown_ZH.md) |
+| 云服务商选型（文档驱动模式） | [examples/doc-grounded-cloud-selection_ZH.md](examples/doc-grounded-cloud-selection_ZH.md) |
 
 ## 核心理念
 

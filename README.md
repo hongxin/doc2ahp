@@ -15,6 +15,13 @@ Tech stack selection, architecture decisions, library comparisons — these deci
 
 Doc2AHP uses the AHP (Analytic Hierarchy Process) framework to transform vague "feelings" into quantifiable, traceable, structured decisions.
 
+## Two Input Modes
+
+Doc2AHP supports two ways to begin a decision analysis:
+
+- **Mode A: Document-Grounded** — Extract criteria from actual documents (requirements docs, tech specs, web search results) with full source traceability. Faithful to the paper's "Doc → AHP" pipeline. [See example](examples/doc-grounded-cloud-selection.md)
+- **Mode B: Quick Analysis** — Generate criteria from LLM domain knowledge for rapid exploration. Faster, but less traceable.
+
 ## Quick Start
 
 ### Installation
@@ -29,8 +36,9 @@ cp -r path/to/doc2ahp/skill/doc2ahp-decision .claude/skills/
 
 ### Usage
 
-Describe your decision scenario in Claude Code. The skill will guide you through a six-step decision process:
+Describe your decision scenario in Claude Code. The skill will guide you through the decision process:
 
+0. **Input Mode Selection** — Choose Document-Grounded or Quick Analysis mode
 1. **Framework Construction** — Define goal, extract criteria, build hierarchy
 2. **Multi-Perspective Evaluation** — Evaluate from technical, business, ops perspectives
 3. **Consensus Aggregation** — Merge perspectives into consensus weights
@@ -50,6 +58,7 @@ Describe your decision scenario in Claude Code. The skill will guide you through
 | Senior Developer Career Path | [examples/career-path-decision.md](examples/career-path-decision.md) |
 | Database for Social App at Scale | [examples/database-selection.md](examples/database-selection.md) |
 | AI Coding Assistant Showdown | [examples/coding-assistant-showdown.md](examples/coding-assistant-showdown.md) |
+| Cloud Provider Selection (Document-Grounded Mode) | [examples/doc-grounded-cloud-selection.md](examples/doc-grounded-cloud-selection.md) |
 
 ## Core Principles
 

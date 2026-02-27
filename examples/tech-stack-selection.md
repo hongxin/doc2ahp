@@ -1,162 +1,162 @@
-# 示例：Web 应用技术栈选型
+# Example: Web Application Tech Stack Selection
 
-> 场景：某创业团队需要为新项目选择前端框架，团队有 5 人，主要经验在 React 和 Vue。
+> Scenario: A startup team of 5 needs to choose a frontend framework for a new project. The team's primary experience is in React and Vue.
 
-## Step 1: 决策框架构建
+## Step 1: Decision Framework Construction
 
-**决策目标**：为新的 SaaS 产品选择最合适的前端框架
+**Decision Goal**: Select the most suitable frontend framework for a new SaaS product
 
-**评估层次**：
+**Evaluation Hierarchy**:
 
 ```
-选择最佳前端框架
-├── 技术能力
-│   ├── 性能（首屏加载、运行时性能）
-│   ├── 生态系统（组件库、工具链）
-│   └── TypeScript 支持
-├── 团队效率
-│   ├── 学习曲线
-│   ├── 开发速度
-│   └── 现有技能匹配
-├── 长期可维护性
-│   ├── 社区活跃度
-│   ├── 大型项目适配性
-│   └── 向后兼容性
-└── 商业因素
-    ├── 招聘难度
-    └── 企业采用率
+Select the Best Frontend Framework
+├── Technical Capability
+│   ├── Performance (first paint, runtime)
+│   ├── Ecosystem (component libraries, toolchain)
+│   └── TypeScript Support
+├── Team Efficiency
+│   ├── Learning Curve
+│   ├── Development Speed
+│   └── Existing Skill Match
+├── Long-term Maintainability
+│   ├── Community Activity
+│   ├── Large-scale Project Suitability
+│   └── Backward Compatibility
+└── Business Factors
+    ├── Hiring Difficulty
+    └── Enterprise Adoption Rate
 ```
 
-**备选方案**：
+**Alternatives**:
 - **React** (v19+)
 - **Vue** (v3+)
 - **Svelte** (v5+)
 
-## Step 2: 多视角评估
+## Step 2: Multi-Perspective Evaluation
 
-### 视角 1：技术专家
+### Perspective 1: Technical Expert
 
-| vs | 技术能力 | 团队效率 | 长期可维护性 | 商业因素 |
-|----|---------|---------|------------|---------|
-| 技术能力 | 1 | 2 | 3 | 5 |
-| 团队效率 | 1/2 | 1 | 2 | 4 |
-| 长期可维护性 | 1/3 | 1/2 | 1 | 3 |
-| 商业因素 | 1/5 | 1/4 | 1/3 | 1 |
+| vs | Technical Capability | Team Efficiency | Long-term Maintainability | Business Factors |
+|----|---------------------|-----------------|--------------------------|-----------------|
+| Technical Capability | 1 | 2 | 3 | 5 |
+| Team Efficiency | 1/2 | 1 | 2 | 4 |
+| Long-term Maintainability | 1/3 | 1/2 | 1 | 3 |
+| Business Factors | 1/5 | 1/4 | 1/3 | 1 |
 
-### 视角 2：团队负责人
+### Perspective 2: Team Lead
 
-| vs | 技术能力 | 团队效率 | 长期可维护性 | 商业因素 |
-|----|---------|---------|------------|---------|
-| 技术能力 | 1 | 1/3 | 1 | 2 |
-| 团队效率 | 3 | 1 | 3 | 5 |
-| 长期可维护性 | 1 | 1/3 | 1 | 3 |
-| 商业因素 | 1/2 | 1/5 | 1/3 | 1 |
+| vs | Technical Capability | Team Efficiency | Long-term Maintainability | Business Factors |
+|----|---------------------|-----------------|--------------------------|-----------------|
+| Technical Capability | 1 | 1/3 | 1 | 2 |
+| Team Efficiency | 3 | 1 | 3 | 5 |
+| Long-term Maintainability | 1 | 1/3 | 1 | 3 |
+| Business Factors | 1/2 | 1/5 | 1/3 | 1 |
 
-### 视角 3：产品经理
+### Perspective 3: Product Manager
 
-| vs | 技术能力 | 团队效率 | 长期可维护性 | 商业因素 |
-|----|---------|---------|------------|---------|
-| 技术能力 | 1 | 1/2 | 2 | 1 |
-| 团队效率 | 2 | 1 | 3 | 2 |
-| 长期可维护性 | 1/2 | 1/3 | 1 | 1/2 |
-| 商业因素 | 1 | 1/2 | 2 | 1 |
+| vs | Technical Capability | Team Efficiency | Long-term Maintainability | Business Factors |
+|----|---------------------|-----------------|--------------------------|-----------------|
+| Technical Capability | 1 | 1/2 | 2 | 1 |
+| Team Efficiency | 2 | 1 | 3 | 2 |
+| Long-term Maintainability | 1/2 | 1/3 | 1 | 1/2 |
+| Business Factors | 1 | 1/2 | 2 | 1 |
 
-## Step 3: 共识聚合
+## Step 3: Consensus Aggregation
 
-### 几何平均矩阵
+### Geometric Mean Matrix
 
-| vs | 技术能力 | 团队效率 | 长期可维护性 | 商业因素 |
-|----|---------|---------|------------|---------|
-| 技术能力 | 1 | 0.87 | 1.82 | 2.15 |
-| 团队效率 | 1.14 | 1 | 2.62 | 3.42 |
-| 长期可维护性 | 0.55 | 0.38 | 1 | 1.65 |
-| 商业因素 | 0.47 | 0.29 | 0.61 | 1 |
+| vs | Technical Capability | Team Efficiency | Long-term Maintainability | Business Factors |
+|----|---------------------|-----------------|--------------------------|-----------------|
+| Technical Capability | 1 | 0.87 | 1.82 | 2.15 |
+| Team Efficiency | 1.14 | 1 | 2.62 | 3.42 |
+| Long-term Maintainability | 0.55 | 0.38 | 1 | 1.65 |
+| Business Factors | 0.47 | 0.29 | 0.61 | 1 |
 
-### 权重计算
+### Weight Calculation
 
-| 准则 | 行几何平均 | 归一化权重 |
-|-----|-----------|----------|
-| 技术能力 | 1.34 | 0.30 |
-| 团队效率 | 1.85 | 0.41 |
-| 长期可维护性 | 0.77 | 0.17 |
-| 商业因素 | 0.52 | 0.12 |
+| Criterion | Row Geometric Mean | Normalized Weight |
+|-----------|-------------------|-------------------|
+| Technical Capability | 1.34 | 0.30 |
+| Team Efficiency | 1.85 | 0.41 |
+| Long-term Maintainability | 0.77 | 0.17 |
+| Business Factors | 0.52 | 0.12 |
 
-**权重分布**：
+**Weight Distribution**:
 ```
-团队效率:      0.41 ████████████████████
-技术能力:      0.30 ███████████████
-长期可维护性:   0.17 ████████
-商业因素:      0.12 ██████
+Team Efficiency:          0.41 ████████████████████
+Technical Capability:     0.30 ███████████████
+Long-term Maintainability: 0.17 ████████
+Business Factors:         0.12 ██████
 ```
 
-## Step 4: 一致性校验
+## Step 4: Consistency Check
 
-**传递性检查**：
-- 团队效率 > 技术能力 > 长期可维护性 > 商业因素 ✓
-- 团队效率 > 长期可维护性 ✓
-- 技术能力 > 商业因素 ✓
-- 所有传递关系一致 ✓
+**Transitivity Verification**:
+- Team Efficiency > Technical Capability > Long-term Maintainability > Business Factors ✓
+- Team Efficiency > Long-term Maintainability ✓
+- Technical Capability > Business Factors ✓
+- All transitive relationships are consistent ✓
 
-**结论**：比较矩阵通过一致性检查。
+**Conclusion**: The comparison matrix passes the consistency check.
 
-## Step 5: 方案评分
+## Step 5: Alternative Scoring
 
-| 子准则 | 权重 | React | Vue | Svelte |
-|-------|------|-------|-----|--------|
-| 性能 | 0.10 | 7 | 7 | 9 |
-| 生态系统 | 0.12 | 9 | 8 | 6 |
-| TypeScript 支持 | 0.08 | 9 | 8 | 8 |
-| 学习曲线 | 0.14 | 6 | 8 | 7 |
-| 开发速度 | 0.14 | 7 | 8 | 8 |
-| 现有技能匹配 | 0.13 | 8 | 8 | 4 |
-| 社区活跃度 | 0.07 | 9 | 8 | 7 |
-| 大型项目适配性 | 0.06 | 9 | 7 | 6 |
-| 向后兼容性 | 0.04 | 7 | 8 | 6 |
-| 招聘难度 | 0.06 | 9 | 7 | 5 |
-| 企业采用率 | 0.06 | 9 | 7 | 4 |
+| Sub-criterion | Weight | React | Vue | Svelte |
+|---------------|--------|-------|-----|--------|
+| Performance | 0.10 | 7 | 7 | 9 |
+| Ecosystem | 0.12 | 9 | 8 | 6 |
+| TypeScript Support | 0.08 | 9 | 8 | 8 |
+| Learning Curve | 0.14 | 6 | 8 | 7 |
+| Development Speed | 0.14 | 7 | 8 | 8 |
+| Existing Skill Match | 0.13 | 8 | 8 | 4 |
+| Community Activity | 0.07 | 9 | 8 | 7 |
+| Large-scale Project Suitability | 0.06 | 9 | 7 | 6 |
+| Backward Compatibility | 0.04 | 7 | 8 | 6 |
+| Hiring Difficulty | 0.06 | 9 | 7 | 5 |
+| Enterprise Adoption Rate | 0.06 | 9 | 7 | 4 |
 
-### 加权得分
+### Weighted Scores
 
-| 方案 | 加权总分 |
-|-----|---------|
+| Alternative | Weighted Total Score |
+|-------------|---------------------|
 | **React** | **7.72** |
 | **Vue** | **7.58** |
 | **Svelte** | **6.43** |
 
-### 敏感性分析
+### Sensitivity Analysis
 
-将"现有技能匹配"权重从 0.13 调至 0.05（降低团队技能影响）：
-- React: 7.52 → 第 1
-- Vue: 7.38 → 第 2
-- Svelte: 6.75 → 第 3（上升但仍第三）
+Adjusting "Existing Skill Match" weight from 0.13 to 0.05 (reducing team skill influence):
+- React: 7.52 → Rank 1
+- Vue: 7.38 → Rank 2
+- Svelte: 6.75 → Rank 3 (improved but still third)
 
-排名稳定，决策稳健。
+Rankings remain stable — the decision is robust.
 
-## Step 6: 决策报告
+## Step 6: Decision Report
 
-# 决策报告：前端框架选型
+# Decision Report: Frontend Framework Selection
 
-## 推荐方案
-**React** — 综合得分 7.72 / 10
+## Recommendation
+**React** — Overall Score: 7.72 / 10
 
-## 排名
+## Ranking
 
-| 排名 | 方案 | 得分 | 核心优势 |
-|-----|------|------|---------|
-| 1 | React | 7.72 | 生态最完善，团队技能匹配，企业级验证充分 |
-| 2 | Vue | 7.58 | 学习曲线平缓，开发速度快，对新人友好 |
-| 3 | Svelte | 6.43 | 性能最优，开发体验好，但生态和团队匹配不足 |
+| Rank | Alternative | Score | Key Strength |
+|------|------------|-------|-------------|
+| 1 | React | 7.72 | Most complete ecosystem, strong team skill match, extensive enterprise validation |
+| 2 | Vue | 7.58 | Gentle learning curve, fast development speed, newcomer-friendly |
+| 3 | Svelte | 6.43 | Best performance, great DX, but lacks ecosystem maturity and team skill match |
 
-## 关键权衡
-- React vs Vue 差距仅 0.14 分，核心差异在**生态系统**和**企业采用率**
-- Svelte 性能领先但受制于**团队技能匹配**和**生态成熟度**
-- 若团队愿意投入学习成本，Vue 是极具竞争力的替代选择
+## Key Trade-offs
+- The gap between React and Vue is only 0.14 points; the core difference lies in **ecosystem** and **enterprise adoption rate**
+- Svelte leads in performance but is constrained by **team skill match** and **ecosystem maturity**
+- If the team is willing to invest in learning, Vue is a highly competitive alternative
 
-## 风险提示
-- React 的 API 演进较快（Hooks → Server Components），需持续跟进
-- 团队 React 经验若不深，初期开发速度可能不及 Vue
+## Risk Assessment
+- React's API evolves rapidly (Hooks → Server Components), requiring continuous upskilling
+- If the team's React experience is limited, initial development speed may lag behind Vue
 
-## 建议
-1. 选择 React 作为主框架
-2. 采用 Next.js 作为元框架以获得最佳实践
-3. 预留 2 周团队培训时间确保 React 最佳实践落地
+## Recommendations
+1. Choose React as the primary framework
+2. Adopt Next.js as the meta-framework for best practices
+3. Allocate 2 weeks of team training to ensure React best practices are established

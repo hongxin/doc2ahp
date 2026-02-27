@@ -1,78 +1,78 @@
-# Doc2AHP 论文核心要点
+# Doc2AHP Paper: Key Points Summary
 
-> 论文: "Doc2AHP: Inferring Structured Multi-Criteria Decision Models via Semantic Trees with LLMs"
-> 作者: Hongjia Wu, Shuai Zhou, Hongxin Zhang, Wei Chen
+> Paper: "Doc2AHP: Inferring Structured Multi-Criteria Decision Models via Semantic Trees with LLMs"
+> Authors: Hongjia Wu, Shuai Zhou, Hongxin Zhang, Wei Chen
 > arXiv: [2601.16479](https://arxiv.org/abs/2601.16479)
 
-## 核心问题
+## Core Problem
 
-传统 AHP（Analytic Hierarchy Process，层次分析法）依赖领域专家手工构建决策层次和成对比较矩阵，成本高、耗时长、难以规模化。Doc2AHP 提出用 LLM 自动化这一过程。
+Traditional AHP (Analytic Hierarchy Process) relies on domain experts to manually construct decision hierarchies and pairwise comparison matrices — a process that is costly, time-consuming, and difficult to scale. Doc2AHP proposes using LLMs to automate this process.
 
-## 关键创新
+## Key Innovations
 
-### 1. 语义树构建（Semantic Tree Construction）
+### 1. Semantic Tree Construction
 
-将非结构化文档转化为层次化决策结构：
+Transforms unstructured documents into hierarchical decision structures:
 
 ```
-目标（Goal）
-├── 主准则 C1（Criterion）
-│   ├── 子准则 C1.1（Sub-criterion）
-│   └── 子准则 C1.2
-├── 主准则 C2
-│   ├── 子准则 C2.1
-│   └── 子准则 C2.2
-└── 主准则 C3
-    └── 子准则 C3.1
+Goal
+├── Main Criterion C1
+│   ├── Sub-criterion C1.1
+│   └── Sub-criterion C1.2
+├── Main Criterion C2
+│   ├── Sub-criterion C2.1
+│   └── Sub-criterion C2.2
+└── Main Criterion C3
+    └── Sub-criterion C3.1
 ```
 
-**方法**：文档嵌入 → 层次聚类 → 递归构建 AHP 层次结构
+**Method**: Document embedding → Hierarchical clustering → Recursive AHP hierarchy construction
 
-**约束参数**：
-- `K_max`：每层最大分支数（认知负荷上限）
-- `D_max`：最大层次深度
-- `τ`（tau）：相关性阈值，过滤无关准则
+**Constraint Parameters**:
+- `K_max`: Maximum branches per level (cognitive load upper bound)
+- `D_max`: Maximum hierarchy depth
+- `τ` (tau): Relevance threshold for filtering irrelevant criteria
 
-### 2. 多 Agent 权重机制
+### 2. Multi-Agent Weighting Mechanism
 
-- **K 个专家 Agent**：各自独立对准则进行成对比较
-- **加权几何均值聚合**：合并多个专家的判断矩阵
-- **Leader Agent**：施加战略优先级约束，确保决策方向一致
+- **K Expert Agents**: Each independently performs pairwise comparisons of criteria
+- **Weighted Geometric Mean Aggregation**: Merges judgment matrices from multiple experts
+- **Leader Agent**: Applies strategic priority constraints to ensure decision alignment
 
-### 3. AHP 数学基础
+### 3. AHP Mathematical Foundation
 
-#### Saaty 标度（1-9）
+#### Saaty Scale (1-9)
 
-| 标度 | 含义 |
-|-----|------|
-| 1 | 同等重要 |
-| 3 | 稍微重要 |
-| 5 | 明显重要 |
-| 7 | 非常重要 |
-| 9 | 极端重要 |
-| 2,4,6,8 | 中间值 |
+| Scale | Meaning |
+|-------|---------|
+| 1 | Equal importance |
+| 3 | Slightly more important |
+| 5 | Clearly more important |
+| 7 | Strongly more important |
+| 9 | Extremely more important |
+| 2,4,6,8 | Intermediate values |
 
-#### 成对比较矩阵
+#### Pairwise Comparison Matrix
 
-对 n 个准则，构建 n×n 矩阵 A，其中 a_ij 表示准则 i 相对于准则 j 的重要程度：
-- a_ij = 1/a_ji（互反性）
-- a_ii = 1（对角线为1）
+For n criteria, construct an n×n matrix A, where a_ij represents the importance of criterion i relative to criterion j:
+- a_ij = 1/a_ji (reciprocity)
+- a_ii = 1 (diagonal is 1)
 
-#### 权重计算：LLSM（对数最小二乘法）
+#### Weight Calculation: LLSM (Logarithmic Least Squares Method)
 
-相比特征值法，LLSM 更适合 LLM 生成的比较矩阵：
+Compared to the eigenvalue method, LLSM is better suited for LLM-generated comparison matrices:
 
 ```
 w_i = (∏_{j=1}^{n} a_ij)^{1/n} / Σ_{k=1}^{n} (∏_{j=1}^{n} a_kj)^{1/n}
 ```
 
-即：每行元素的几何平均值，归一化后即为权重。
+In other words: the geometric mean of each row's elements, normalized to produce weights.
 
-#### 一致性检验
+#### Consistency Verification
 
-- **一致性指标 CI** = (λ_max - n) / (n - 1)
-- **一致性比率 CR** = CI / RI
-- **可接受阈值**：CR < 0.1
+- **Consistency Index CI** = (λ_max - n) / (n - 1)
+- **Consistency Ratio CR** = CI / RI
+- **Acceptance threshold**: CR < 0.1
 
 | n | RI |
 |---|-----|
@@ -82,34 +82,34 @@ w_i = (∏_{j=1}^{n} a_ij)^{1/n} / Σ_{k=1}^{n} (∏_{j=1}^{n} a_kj)^{1/n}
 | 6 | 1.24 |
 | 7 | 1.32 |
 
-### 4. 自适应一致性优化
+### 4. Adaptive Consistency Optimization
 
-当 CR ≥ 0.1 时：
-1. 定位最不一致的元素
-2. 调整该元素使其更符合传递性（若 A>B 且 B>C，则应 A>C）
-3. 重新计算直到 CR < 0.1
+When CR ≥ 0.1:
+1. Locate the most inconsistent element
+2. Adjust it to better satisfy transitivity (if A > B and B > C, then A > C)
+3. Recompute until CR < 0.1
 
-### 5. 决策推理与效用计算
+### 5. Decision Reasoning & Utility Computation
 
-最终得分 = Σ (准则权重 × 方案在该准则下的得分)
+Final Score = Σ (Criterion Weight × Alternative's Score on that Criterion)
 
-## 论文 Pipeline 流程
+## Paper Pipeline Flow
 
 ```
-输入文档
-  → 文本分块 & 嵌入
-    → 层次聚类
-      → 语义树构建（准则提取）
-        → 多Agent成对比较
-          → LLSM权重计算
-            → 一致性检验 & 优化
-              → 方案评分
-                → 决策报告
+Input Document
+  → Text Chunking & Embedding
+    → Hierarchical Clustering
+      → Semantic Tree Construction (Criteria Extraction)
+        → Multi-Agent Pairwise Comparisons
+          → LLSM Weight Calculation
+            → Consistency Verification & Optimization
+              → Alternative Scoring
+                → Decision Report
 ```
 
-## 核心洞察
+## Core Insights
 
-1. **LLM 既是信息提取器，也是决策评估器** — 一个模型完成传统上需要多个专家的工作
-2. **结构化约束消除幻觉** — AHP 的数学框架（互反性、一致性检验）约束 LLM 产生逻辑一致的判断
-3. **多 Agent 机制增加鲁棒性** — 多视角评估减少单一视角偏差
-4. **认知约束符合人类理解** — K_max ≤ 7 对应 Miller's Law（7±2），确保结果可解释
+1. **LLM serves as both information extractor and decision evaluator** — A single model accomplishes work that traditionally requires multiple experts
+2. **Structured constraints eliminate hallucination** — AHP's mathematical framework (reciprocity, consistency checks) constrains the LLM to produce logically consistent judgments
+3. **Multi-Agent mechanism increases robustness** — Multi-perspective evaluation reduces single-viewpoint bias
+4. **Cognitive constraints align with human understanding** — K_max ≤ 7 corresponds to Miller's Law (7±2), ensuring results remain interpretable

@@ -1,112 +1,112 @@
-# 示例：状态管理库对比
+# Example: State Management Library Comparison
 
-> 场景：React 项目需要引入全局状态管理，当前用 React Context + useReducer，随着应用复杂度增加需要更强大的方案。
+> Scenario: A React project needs global state management. Currently using React Context + useReducer, but as the application grows in complexity, a more powerful solution is needed.
 
-## Step 1: 决策框架构建
+## Step 1: Decision Framework Construction
 
-**决策目标**：选择最适合中大型 React 应用的状态管理库
+**Decision Goal**: Select the most suitable state management library for a medium-to-large React application
 
-**评估层次**：
+**Evaluation Hierarchy**:
 
 ```
-选择最佳状态管理库
-├── 开发体验
-│   ├── API 简洁度
-│   ├── TypeScript 支持
-│   └── DevTools 质量
-├── 性能特性
-│   ├── 渲染优化
-│   └── 包体积
-├── 生态与社区
-│   ├── 社区活跃度
-│   ├── 中间件/插件生态
-│   └── 文档质量
-└── 迁移成本
-    ├── 与现有代码兼容性
-    └── 渐进式采用能力
+Select the Best State Management Library
+├── Developer Experience
+│   ├── API Simplicity
+│   ├── TypeScript Support
+│   └── DevTools Quality
+├── Performance Characteristics
+│   ├── Render Optimization
+│   └── Bundle Size
+├── Ecosystem & Community
+│   ├── Community Activity
+│   ├── Middleware/Plugin Ecosystem
+│   └── Documentation Quality
+└── Migration Cost
+    ├── Compatibility with Existing Code
+    └── Incremental Adoption Capability
 ```
 
-**备选方案**：
+**Alternatives**:
 - **Zustand**
 - **Jotai**
 - **Redux Toolkit (RTK)**
 
-## Step 2-3: 评估与聚合
+## Steps 2-3: Evaluation & Aggregation
 
-综合前端架构师和一线开发者两个视角：
+Combining perspectives from a frontend architect and frontline developers:
 
-**共识权重**：
+**Consensus Weights**:
 
 ```
-开发体验:   0.35 █████████████████
-性能特性:   0.25 ████████████
-生态与社区: 0.22 ███████████
-迁移成本:   0.18 █████████
+Developer Experience:   0.35 █████████████████
+Performance:            0.25 ████████████
+Ecosystem & Community:  0.22 ███████████
+Migration Cost:         0.18 █████████
 ```
 
-## Step 4: 一致性校验
+## Step 4: Consistency Check
 
-- 开发体验 > 性能特性 > 生态与社区 > 迁移成本 ✓
-- 所有传递关系一致 ✓
+- Developer Experience > Performance > Ecosystem & Community > Migration Cost ✓
+- All transitive relationships are consistent ✓
 
-## Step 5: 方案评分
+## Step 5: Alternative Scoring
 
-| 子准则 | 权重 | Zustand | Jotai | RTK |
-|-------|------|---------|-------|-----|
-| API 简洁度 | 0.14 | 9 | 8 | 6 |
-| TypeScript 支持 | 0.11 | 8 | 9 | 8 |
-| DevTools 质量 | 0.10 | 7 | 6 | 9 |
-| 渲染优化 | 0.15 | 8 | 9 | 7 |
-| 包体积 | 0.10 | 9 | 9 | 5 |
-| 社区活跃度 | 0.08 | 8 | 7 | 9 |
-| 中间件/插件生态 | 0.07 | 6 | 5 | 9 |
-| 文档质量 | 0.07 | 7 | 7 | 8 |
-| 与现有代码兼容性 | 0.09 | 8 | 7 | 6 |
-| 渐进式采用能力 | 0.09 | 9 | 8 | 5 |
+| Sub-criterion | Weight | Zustand | Jotai | RTK |
+|---------------|--------|---------|-------|-----|
+| API Simplicity | 0.14 | 9 | 8 | 6 |
+| TypeScript Support | 0.11 | 8 | 9 | 8 |
+| DevTools Quality | 0.10 | 7 | 6 | 9 |
+| Render Optimization | 0.15 | 8 | 9 | 7 |
+| Bundle Size | 0.10 | 9 | 9 | 5 |
+| Community Activity | 0.08 | 8 | 7 | 9 |
+| Middleware/Plugin Ecosystem | 0.07 | 6 | 5 | 9 |
+| Documentation Quality | 0.07 | 7 | 7 | 8 |
+| Compatibility with Existing Code | 0.09 | 8 | 7 | 6 |
+| Incremental Adoption | 0.09 | 9 | 8 | 5 |
 
-### 加权得分
+### Weighted Scores
 
-| 方案 | 加权总分 |
-|-----|---------|
+| Alternative | Weighted Total Score |
+|-------------|---------------------|
 | **Zustand** | **8.02** |
 | **Jotai** | **7.65** |
 | **RTK** | **6.92** |
 
-### 敏感性分析
+### Sensitivity Analysis
 
-将"中间件/插件生态"权重提升至 0.15（假设项目需要大量中间件）：
+Increasing "Middleware/Plugin Ecosystem" weight to 0.15 (assuming the project needs extensive middleware):
 - Zustand: 7.88
-- RTK: 7.18（大幅上升）
+- RTK: 7.18 (significant improvement)
 - Jotai: 7.45
 
-即使在生态权重大幅提升的情况下，Zustand 仍然领先。
+Even with a significantly increased ecosystem weight, Zustand still leads.
 
-## Step 6: 决策报告
+## Step 6: Decision Report
 
-# 决策报告：状态管理库选型
+# Decision Report: State Management Library Selection
 
-## 推荐方案
-**Zustand** — 综合得分 8.02 / 10
+## Recommendation
+**Zustand** — Overall Score: 8.02 / 10
 
-## 排名
+## Ranking
 
-| 排名 | 方案 | 得分 | 核心优势 |
-|-----|------|------|---------|
-| 1 | Zustand | 8.02 | API 极简、包体积小、迁移成本低 |
-| 2 | Jotai | 7.65 | 原子化模型、渲染优化最佳、TS 支持优秀 |
-| 3 | RTK | 6.92 | 生态最完善、DevTools 最强、企业级验证 |
+| Rank | Alternative | Score | Key Strength |
+|------|------------|-------|-------------|
+| 1 | Zustand | 8.02 | Minimalist API, tiny bundle size, low migration cost |
+| 2 | Jotai | 7.65 | Atomic model, best render optimization, excellent TS support |
+| 3 | RTK | 6.92 | Most complete ecosystem, best DevTools, enterprise-proven |
 
-## 关键权衡
-- Zustand vs Jotai：Zustand 更简单直接，Jotai 更适合细粒度状态管理
-- Zustand vs RTK：Zustand 轻量灵活，RTK 规范完整但引入较多样板代码
-- 若项目需要复杂的异步状态管理和时间旅行调试，RTK 的优势会更明显
+## Key Trade-offs
+- Zustand vs Jotai: Zustand is simpler and more straightforward; Jotai excels at fine-grained state management
+- Zustand vs RTK: Zustand is lightweight and flexible; RTK provides comprehensive conventions but introduces more boilerplate
+- If the project requires complex async state management and time-travel debugging, RTK's advantages become more pronounced
 
-## 风险提示
-- Zustand 的中间件生态不如 RTK 丰富，复杂场景可能需要自行扩展
-- Zustand 约定较少，团队需要自行建立状态管理规范
+## Risk Assessment
+- Zustand's middleware ecosystem is not as rich as RTK's; complex scenarios may require custom extensions
+- Zustand has fewer conventions, so the team needs to establish their own state management standards
 
-## 建议
-1. 采用 Zustand 作为全局状态管理方案
-2. 结合 React Query/TanStack Query 处理服务端状态
-3. 建立团队内部的 store 组织规范（按功能域拆分 store）
-4. 复杂表单状态考虑配合 React Hook Form 使用
+## Recommendations
+1. Adopt Zustand as the global state management solution
+2. Combine with React Query/TanStack Query for server-side state
+3. Establish internal team conventions for store organization (split stores by feature domain)
+4. Consider pairing with React Hook Form for complex form state

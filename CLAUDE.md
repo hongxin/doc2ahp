@@ -1,18 +1,18 @@
 # Doc2AHP Project
 
-## 项目概述
-Doc2AHP 是一个 Claude Code Skill，将论文 "Doc2AHP" 的结构化多准则决策方法论转化为开发者可用的决策分析工具。
+## Overview
+Doc2AHP is a Claude Code Skill that transforms the structured multi-criteria decision methodology from the "Doc2AHP" paper into a practical decision analysis tool for developers.
 
-## 核心原则
-- **零依赖**：纯 Skill 方案，LLM 自身作为 AHP 计算引擎
-- **认知约束**：每层 ≤7 准则，深度 ≤3 层（Miller's Law + 论文 K_max/D_max）
-- **多视角评估**：通过角色切换模拟论文的多 Agent 机制
+## Core Principles
+- **Zero-dependency**: Pure Skill approach — the LLM itself serves as the AHP computation engine
+- **Cognitive constraints**: ≤7 criteria per level, ≤3 depth levels (Miller's Law + paper's K_max/D_max)
+- **Multi-perspective evaluation**: Simulates the paper's multi-Agent mechanism through role-switching
 
-## 项目结构
-- `skill/doc2ahp-decision/SKILL.md` — 核心 Skill 文件
-- `docs/methodology.md` — 方法论详解
-- `paper/PAPER_SUMMARY.md` — 论文要点摘要
-- `examples/` — 使用示例
+## Project Structure
+- `skill/doc2ahp-decision/SKILL.md` — Core Skill file
+- `docs/methodology.md` — Detailed methodology guide
+- `paper/PAPER_SUMMARY.md` — Paper key points summary
+- `examples/` — Usage examples
 
-## 安装方式
-用户将 `skill/doc2ahp-decision/` 复制到项目的 `.claude/skills/` 目录即可。
+## Installation
+Copy the `skill/doc2ahp-decision/` directory into your project's `.claude/skills/` directory.

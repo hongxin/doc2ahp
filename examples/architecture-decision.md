@@ -1,118 +1,118 @@
-# 示例：微服务 vs 单体架构决策
+# Example: Microservices vs Monolith Architecture Decision
 
-> 场景：电商平台日订单量从 1K 增长到 50K，现有 Django 单体出现性能瓶颈，团队考虑架构升级。
+> Scenario: An e-commerce platform's daily order volume has grown from 1K to 50K. The existing Django monolith is experiencing performance bottlenecks, and the team is considering an architectural upgrade.
 
-## Step 1: 决策框架构建
+## Step 1: Decision Framework Construction
 
-**决策目标**：选择最适合业务增长阶段的架构方案
+**Decision Goal**: Select the architecture approach best suited to the current business growth stage
 
-**评估层次**：
-
-```
-选择最佳架构方案
-├── 可扩展性
-│   ├── 水平扩展能力
-│   └── 独立部署能力
-├── 开发效率
-│   ├── 开发复杂度
-│   ├── 团队协作效率
-│   └── 上线速度
-├── 可靠性
-│   ├── 故障隔离
-│   └── 数据一致性
-└── 运维成本
-    ├── 基础设施成本
-    ├── 监控复杂度
-    └── 运维人力需求
-```
-
-**备选方案**：
-- **A. 全面微服务**：按领域拆分为独立服务
-- **B. 模块化单体**：保持单体但严格模块化，关键模块可独立部署
-- **C. 渐进式拆分**：先模块化，再逐步将瓶颈模块拆为独立服务
-
-**用户优先级约束**：开发效率优先（创业阶段，需快速迭代）
-
-## Step 2-3: 评估与聚合（压缩展示）
-
-综合技术架构师、运维工程师、CTO 三个视角的评估：
-
-**共识权重**：
+**Evaluation Hierarchy**:
 
 ```
-开发效率:   0.38 ███████████████████
-可扩展性:   0.28 ██████████████
-可靠性:     0.20 ██████████
-运维成本:   0.14 ███████
+Select the Best Architecture Approach
+├── Scalability
+│   ├── Horizontal Scaling Capability
+│   └── Independent Deployment Capability
+├── Development Efficiency
+│   ├── Development Complexity
+│   ├── Team Collaboration Efficiency
+│   └── Time to Ship
+├── Reliability
+│   ├── Fault Isolation
+│   └── Data Consistency
+└── Operational Cost
+    ├── Infrastructure Cost
+    ├── Monitoring Complexity
+    └── Ops Staffing Requirements
 ```
 
-（已应用"开发效率优先"约束，将开发效率权重上调 1 个标度等级）
+**Alternatives**:
+- **A. Full Microservices**: Decompose into independent services by domain
+- **B. Modular Monolith**: Keep the monolith but enforce strict modularity; critical modules can be independently deployed
+- **C. Progressive Decomposition**: Modularize first, then gradually extract bottleneck modules into independent services
 
-## Step 4: 一致性校验
+**User Priority Constraint**: Development efficiency first (startup stage, need rapid iteration)
 
-- 开发效率 > 可扩展性 > 可靠性 > 运维成本 ✓
-- 开发效率 > 可靠性 ✓（传递性满足）
-- 可扩展性 > 运维成本 ✓（传递性满足）
-- 通过一致性检查 ✓
+## Steps 2-3: Evaluation & Aggregation (Condensed)
 
-## Step 5: 方案评分
+Combining evaluations from three perspectives: Technical Architect, Ops Engineer, and CTO:
 
-| 子准则 | 权重 | 全面微服务 | 模块化单体 | 渐进式拆分 |
-|-------|------|-----------|-----------|-----------|
-| 水平扩展能力 | 0.16 | 9 | 5 | 7 |
-| 独立部署能力 | 0.12 | 9 | 4 | 6 |
-| 开发复杂度 | 0.14 | 4 | 8 | 7 |
-| 团队协作效率 | 0.12 | 7 | 6 | 7 |
-| 上线速度 | 0.12 | 4 | 9 | 7 |
-| 故障隔离 | 0.12 | 9 | 4 | 6 |
-| 数据一致性 | 0.08 | 5 | 9 | 7 |
-| 基础设施成本 | 0.05 | 4 | 8 | 6 |
-| 监控复杂度 | 0.05 | 3 | 8 | 6 |
-| 运维人力需求 | 0.04 | 3 | 8 | 6 |
+**Consensus Weights**:
 
-### 加权得分
+```
+Development Efficiency: 0.38 ███████████████████
+Scalability:            0.28 ██████████████
+Reliability:            0.20 ██████████
+Operational Cost:       0.14 ███████
+```
 
-| 方案 | 加权总分 |
-|-----|---------|
-| **渐进式拆分** | **6.72** |
-| **模块化单体** | **6.58** |
-| **全面微服务** | **6.10** |
+(The "development efficiency first" constraint has been applied, boosting its weight by 1 scale level)
 
-### 敏感性分析
+## Step 4: Consistency Check
 
-将"可扩展性"权重从 0.28 提升至 0.40（假设业务增长超预期）：
-- 全面微服务: 6.62 → 第 1
-- 渐进式拆分: 6.70 → 第 1（依然领先）
-- 模块化单体: 5.98 → 第 3
+- Development Efficiency > Scalability > Reliability > Operational Cost ✓
+- Development Efficiency > Reliability ✓ (transitivity satisfied)
+- Scalability > Operational Cost ✓ (transitivity satisfied)
+- Passes consistency check ✓
 
-渐进式拆分在两种场景下都保持领先，结论稳健。
+## Step 5: Alternative Scoring
 
-## Step 6: 决策报告
+| Sub-criterion | Weight | Full Microservices | Modular Monolith | Progressive Decomposition |
+|---------------|--------|--------------------|------------------|--------------------------|
+| Horizontal Scaling | 0.16 | 9 | 5 | 7 |
+| Independent Deployment | 0.12 | 9 | 4 | 6 |
+| Development Complexity | 0.14 | 4 | 8 | 7 |
+| Team Collaboration | 0.12 | 7 | 6 | 7 |
+| Time to Ship | 0.12 | 4 | 9 | 7 |
+| Fault Isolation | 0.12 | 9 | 4 | 6 |
+| Data Consistency | 0.08 | 5 | 9 | 7 |
+| Infrastructure Cost | 0.05 | 4 | 8 | 6 |
+| Monitoring Complexity | 0.05 | 3 | 8 | 6 |
+| Ops Staffing | 0.04 | 3 | 8 | 6 |
 
-# 决策报告：架构方案选型
+### Weighted Scores
 
-## 推荐方案
-**渐进式拆分** — 综合得分 6.72 / 10
+| Alternative | Weighted Total Score |
+|-------------|---------------------|
+| **Progressive Decomposition** | **6.72** |
+| **Modular Monolith** | **6.58** |
+| **Full Microservices** | **6.10** |
 
-## 排名
+### Sensitivity Analysis
 
-| 排名 | 方案 | 得分 | 核心优势 |
-|-----|------|------|---------|
-| 1 | 渐进式拆分 | 6.72 | 平衡短期效率与长期扩展性，风险最低 |
-| 2 | 模块化单体 | 6.58 | 开发最快，但扩展性天花板明显 |
-| 3 | 全面微服务 | 6.10 | 扩展性最强，但当前阶段复杂度过高 |
+Increasing "Scalability" weight from 0.28 to 0.40 (assuming faster-than-expected business growth):
+- Full Microservices: 6.62 → Rank 1
+- Progressive Decomposition: 6.70 → Rank 1 (still leads)
+- Modular Monolith: 5.98 → Rank 3
 
-## 关键权衡
-- 全面微服务在可扩展性和故障隔离上领先，但开发复杂度和运维成本过高
-- 模块化单体短期效率最高，但当订单量突破 100K 时可能再次遇到瓶颈
-- 渐进式拆分兼顾两者优势，但要求团队有清晰的模块边界设计能力
+Progressive Decomposition maintains its lead in both scenarios — the conclusion is robust.
 
-## 风险提示
-- 渐进式拆分要求纪律性：若模块边界设计不清晰，后续拆分成本会急剧增加
-- 需要提前识别最可能成为瓶颈的模块（订单处理、库存管理）作为首批拆分候选
+## Step 6: Decision Report
 
-## 建议
-1. 第一阶段（1-2 月）：将现有 Django 单体严格模块化，建立清晰的模块边界
-2. 第二阶段（3-4 月）：将订单处理模块拆分为独立服务
-3. 第三阶段（按需）：根据实际瓶颈逐步拆分其他模块
-4. 配套基建：引入 API Gateway、服务发现、分布式追踪
+# Decision Report: Architecture Approach Selection
+
+## Recommendation
+**Progressive Decomposition** — Overall Score: 6.72 / 10
+
+## Ranking
+
+| Rank | Alternative | Score | Key Strength |
+|------|------------|-------|-------------|
+| 1 | Progressive Decomposition | 6.72 | Balances short-term efficiency with long-term scalability, lowest risk |
+| 2 | Modular Monolith | 6.58 | Fastest development, but clear scalability ceiling |
+| 3 | Full Microservices | 6.10 | Strongest scalability, but excessive complexity at current stage |
+
+## Key Trade-offs
+- Full Microservices leads in scalability and fault isolation, but development complexity and operational costs are too high
+- Modular Monolith offers the highest short-term efficiency, but may hit bottlenecks again when orders exceed 100K
+- Progressive Decomposition combines the advantages of both, but requires the team to have clear module boundary design skills
+
+## Risk Assessment
+- Progressive Decomposition demands discipline: if module boundaries are poorly designed, subsequent decomposition costs will increase dramatically
+- Need to identify modules most likely to become bottlenecks (order processing, inventory management) as first decomposition candidates
+
+## Recommendations
+1. Phase 1 (Months 1-2): Strictly modularize the existing Django monolith with clear module boundaries
+2. Phase 2 (Months 3-4): Extract the order processing module as an independent service
+3. Phase 3 (As needed): Progressively decompose other modules based on actual bottlenecks
+4. Supporting infrastructure: Introduce API Gateway, service discovery, and distributed tracing
